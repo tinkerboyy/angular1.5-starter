@@ -1,0 +1,36 @@
+<md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
+            md-component-id="left">
+    <md-toolbar class="md-whiteframe-z1">
+        <h1 class="auto"><img src="./assets/images/pnc_logo_rev.png"  width="100px" alt="PNC Auto Loans"></h1>
+    </md-toolbar>
+    <md-list>
+        <md-list-item ng-repeat="menuItem in headerCtrl.menuItems">
+            <md-button
+                    ng-href="{{menuItem.href}}"
+                    ng-click="menu.setActiveMenu(menuItem, true)"
+                    ng-class="{'active md-raised': menu.selected.title === menuItem.title}">
+                {{menuItem.title}}
+            </md-button>
+        </md-list-item>
+    </md-list>
+</md-sidenav>
+
+<div flex tabIndex="-1" role="main" class="">
+    <md-toolbar layout="row" class="md-whiteframe-z1" id="header-toolbar" ng-style="{'background-color': '#2d3943'}">
+        <div flex hide-gt-sm>
+            <md-button class="menu-btn" ng-click="headerCtrl.toggleView()" aria-label="Show Menu">
+                <md-icon md-svg-icon="menu" ></md-icon>
+            </md-button>
+        </div>
+        <h1 flex-gt-sm><img src="./assets/images/pnc_logo_rev.png" width="100px" alt="PNC Auto Loans"></h1>
+        <div class="menu" hide-sm hide-xs>
+            <md-button
+                    ng-href="{{menuItem.href}}"
+                    ng-repeat="menuItem in headerCtrl.menuItems"
+                    ng-click="menu.setActiveMenu(menuItem)"
+                    ng-class="{active: headerCtrl.selected.title === menuItem.title}">
+                {{menuItem.title}}
+            </md-button>
+        </div>
+    </md-toolbar>
+</div>
